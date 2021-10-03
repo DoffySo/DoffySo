@@ -76,7 +76,7 @@ $buttonbgsecond_h: #5D5D5D;
         background-color: transparent;
         padding: 10px;
         display: grid;
-        grid-template-areas: "adone" ".menu" "postts" "adtwo";
+        grid-template-areas: ".menu" "postts";
         grid-template-columns: 1fr 2fr 1fr;
 
         .ad_one {
@@ -110,6 +110,7 @@ $buttonbgsecond_h: #5D5D5D;
         }
         .menu {
             display: flex;
+            position: absolute;
             height: auto;
             .create_post, .to_posts {
                 padding: 10px 15px;
@@ -145,11 +146,10 @@ $buttonbgsecond_h: #5D5D5D;
         .posts {
             grid-area: postts;
             display: flex;
-            flex-direction: row-reverse;
-            max-width: 1500px;
+            flex-direction: row;
+            flex-grow: 1;
             flex-wrap: wrap;
-            justify-content: center;
-            background-color: red;
+            max-width: 1200px;
             .noPost {
                 color: black;
                 text-align: center;
@@ -181,12 +181,11 @@ $buttonbgsecond_h: #5D5D5D;
                     border-radius: 25px 25px 0 0;
                     .theme {
                         width: 75px;
-                        left: 14%;
+                        left: 0;
                         padding: 5px 10px;
                         font-weight: 600;
                         top: 50%;
                         text-align: start;
-                        transform: translate(-50%, -50%);
                         position: absolute;
                         border-radius: 0 25px 25px 0;
                         background-color: white;
@@ -244,6 +243,19 @@ $buttonbgsecond_h: #5D5D5D;
                 .title {
                     font-size: 26px;
                 }
+            }
+        }
+    }
+    .view {
+        justify-content: center;
+        .post {
+            grid-area: main;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .title {
+
             }
         }
     }

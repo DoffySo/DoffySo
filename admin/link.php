@@ -6,11 +6,16 @@ require '../src/components/admin/header.php';
 $u = $_SESSION['admin']['id'];
 $user = $mysqli->query("SELECT * FROM `users` WHERE `id` = '$u'");
 $user = mysqli_fetch_assoc($user);
-if ($user['level'] < 3) {
-    echo '<script>alert("У вас недостаточно прав!")</script>';
-    header('Location: /admin/index');
-}
+
+
+$u = $_SESSION['admin']['id'];
+$user = $mysqli->query("SELECT * FROM `users` WHERE `id` = '$u'");
+$user = mysqli_fetch_assoc($user);
+if ($user['level'] < 2) { //Проверяем уровень админки
 ?>
+<p class="noPosts">У вас недостаточно прав.</p>
+
+<?php } else { ?>
     <!--    Main-->
     <div class="header--posts">
         <table class="userstable">
@@ -48,6 +53,7 @@ if ($user['level'] < 3) {
         </table>
     </div>
 </header>
+<?php } ?>
 
 <style>
     .header--posts {

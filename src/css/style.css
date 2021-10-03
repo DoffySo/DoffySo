@@ -21,7 +21,7 @@
 
 * header .header--ah { grid-area: headerbutton; width: max-content; height: max-content; }
 
-* .main { font-family: 'Roboto', sans-serif; grid-area: main; margin: auto; width: 1000px; background-color: transparent; padding: 10px; display: grid; grid-template-areas: "adone" ".menu" "postts" "adtwo"; grid-template-columns: 1fr 2fr 1fr; }
+* .main { font-family: 'Roboto', sans-serif; grid-area: main; margin: auto; width: 1000px; background-color: transparent; padding: 10px; display: grid; grid-template-areas: ".menu" "postts"; grid-template-columns: 1fr 2fr 1fr; }
 
 * .main .ad_one { grid-area: adone; }
 
@@ -33,7 +33,7 @@
 
 * .main .ad_one .go_to_ad, * .main .ad_two .go_to_ad { width: 100%; height: max-content; padding: 10px; color: black; }
 
-* .main .menu { display: flex; height: auto; }
+* .main .menu { display: flex; position: absolute; height: auto; }
 
 * .main .menu .create_post, * .main .menu .to_posts { padding: 10px 15px; background-color: #404040; transition: background-color 200ms ease; width: max-content; color: white; border-radius: 8px; margin-bottom: 10px; display: flex; height: max-content; margin-right: 10px; }
 
@@ -43,7 +43,7 @@
 
 * .main .menu .find_:focus { border: 1px solid #CF7171; }
 
-* .main .posts { grid-area: postts; display: flex; flex-direction: row-reverse; max-width: 1500px; flex-wrap: wrap; justify-content: center; background-color: red; }
+* .main .posts { grid-area: postts; display: flex; flex-direction: row; flex-grow: 1; flex-wrap: wrap; max-width: 1200px; }
 
 * .main .posts .noPost { color: black; text-align: center; align-self: center; justify-self: center; }
 
@@ -53,7 +53,7 @@
 
 * .main .posts .post .top { background-color: gray; grid-area: top; position: relative; border-radius: 25px 25px 0 0; }
 
-* .main .posts .post .top .theme { width: 75px; left: 14%; padding: 5px 10px; font-weight: 600; top: 50%; text-align: start; transform: translate(-50%, -50%); position: absolute; border-radius: 0 25px 25px 0; background-color: white; }
+* .main .posts .post .top .theme { width: 75px; left: 0; padding: 5px 10px; font-weight: 600; top: 50%; text-align: start; position: absolute; border-radius: 0 25px 25px 0; background-color: white; }
 
 * .main .posts .post .bottom { background-color: white; grid-area: bottom; border-radius: 0 0 25px 25px; display: grid; grid-template-areas: "topbottom" "contrls"; grid-template-rows: 1fr 1fr; padding: 0 5px; }
 
@@ -74,6 +74,10 @@
 * .main .posts .post .bottom .controls .info .views_comments { grid-area: counters; }
 
 * .main .posts .post .title { font-size: 26px; }
+
+* .view { justify-content: center; }
+
+* .view .post { grid-area: main; display: flex; flex-direction: column; gap: 10px; }
 
 * footer { font-family: 'Roboto', sans-serif; grid-area: footer; position: static; width: 100%; bottom: 0; display: grid; grid-template-areas: "copyrights rights"; grid-template-columns: 1fr 1fr; text-align: center; align-items: center; justify-items: center; justify-content: center; padding: 20px; margin-top: auto; font-family: 'Roboto', sans-serif; background-color: #F5F5F5; }
 

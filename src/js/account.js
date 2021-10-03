@@ -88,23 +88,24 @@ $('.create_post').click(function (e) {
 
     $(`input`).removeClass('error');
 
-    var date = Date.now()
-    var userid = $_SESSION['admin']['id'];
+    var datee = Date.now()
 
     let title = $('input[name="title"]').val(),
         text = $('input[name="text"]').val(),
-        datet = date,
-        admin = userid;
+        text_small = $('input[name="text_small"]').val(),
+        theme = $('input[name="theme"]').val(),
+        date = datee
 
     $.ajax({
-        url: '/',
+        url: '/api/auth/post_create',
         type: 'POST',
         dataType: 'json',
         data: {
-            login: login,
-            password: password,
-            datet: datet,
-            adminid: admin
+            title: title,
+            text: text,
+            text_small: text_small,
+            theme: theme,
+            date: date,
         },
         success(data) {
             if (data.status) {

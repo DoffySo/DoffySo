@@ -75,6 +75,8 @@ body .header--posts .post .post_buttons .deletePost { background-color: #de5454;
 
 body .header--posts .post .post_buttons .deletePost:hover { background-color: #bb4646; }
 
+body .header--posts .post .formatting_buttons { color: black; }
+
 body .header--posts .post .head { grid-area: heady; }
 
 body .header--posts .post .body { grid-area: bodyy; display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: "top_bottom top_bottom" "post_btn right_bottom"; align-items: center; justify-content: center; justify-items: center; }
