@@ -30,7 +30,7 @@ $user = mysqli_fetch_assoc($user);
         <nav>
             <li class="navlinks_admin">
                 <a href="#" class="navbtn">На главную</a>
-                <a href="#" class="navbtn">Создать пост</a>
+                <a href="/admin/post_create" class="navbtn">Создать пост</a>
                 <a href="/admin/posts" class="navbtn">Посты</a>
                 <a href="/admin/link" class="navbtn">Аккаунты</a>
                 <a href="/admin/index" class="navbtn">Админ-панель</a>

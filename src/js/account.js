@@ -88,7 +88,8 @@ $('.create_post').click(function (e) {
 
     $(`input`).removeClass('error');
 
-    var datee = Date.now()
+    let datee = new Date()
+    datee = datee.getDate()
 
     let title = $('input[name="title"]').val(),
         text = $('input[name="text"]').val(),

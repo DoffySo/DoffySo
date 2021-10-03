@@ -7,7 +7,7 @@ require '../vendor/database.php';
 
 <div class="header--posts">
     <?php
-    $posts = $mysqli->query("SELECT * FROM `posts`");
+    $posts = $mysqli->query("SELECT * FROM `posts` WHERE `deleted` = 0");
     $posts = mysqli_fetch_all($posts);
     foreach ($posts as $post) { // Начинаем цикл Foreach?>
         <div class="post">
