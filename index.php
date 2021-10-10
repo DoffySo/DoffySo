@@ -5,10 +5,6 @@
 ?>
 <div class="container">
     <div class="main">
-        <div class="ad_one">
-            <img src="" alt="Ad" class="image_ad">
-            <a href="#" class="go_to_ad">Перейти</a>
-        </div>
         <div class="menu">
             <?php
                 if ($_SESSION['admin']) {
@@ -18,12 +14,14 @@
             <?php
                 }
             ?>
-            <!-- -->
-            <input type="text" placeholder="Запрещённые наркотики" class="find_">
         </div>
         <div class="posts">
+            <div class="ad">
+                <img src="" alt="Ad" class="image_ad">
+                <a href="#" class="go_to_ad">Перейти</a>
+            </div>
             <?php
-            $sql = "SELECT * FROM `posts` WHERE `accepted` = 1";
+            $sql = "SELECT * FROM `posts` WHERE `accepted` = 1 AND `deleted` = 0";
             $p = $mysqli->query($sql);
             $post = mysqli_fetch_all($p);
             foreach ($post as $poste) {
@@ -39,7 +37,7 @@
                         <p class="text"><?= $poste[3] ?></p>
                     </div>
                     <div class="controls">
-                        <a href="#" class="post_btn">Подробнее</a>
+                        <a href="/post?post_id=<?= $poste[0] ?>" class="post_btn">Подробнее</a>
                         <div class="info">
                             <small class="date"><?= $poste[5] ?></small>
                             <small class="views_comments"><?= $poste[8] ?> просмотров <?= $poste[9] ?> комментариев</small>
@@ -51,11 +49,9 @@
             }
             ?>
         </div>
-        <div class="ad_two">
-            <img src="" alt="Ad" class="image_ad">
-            <a href="#" class="go_to_ad">Перейти</a>
-        </div>
     </div>
 </div>
-    <?php include 'src/components/footer.php'; ?>
+
+<script src="/src/js/scroll.js"></script>
+<script src="/src/js/anime.min.js"></script>
 

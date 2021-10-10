@@ -55,7 +55,9 @@
         ?>
     </div>
     <div class="header--ah">
-        Тут типа бургер-меню
+        <?php
+        require 'src/components/burger.php';
+        ?>
     </div>
 </header>
 <!-- -->

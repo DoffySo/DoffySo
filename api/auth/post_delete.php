@@ -33,8 +33,10 @@ if (!empty($error_fields)) {
 }
 $query = mysqli_fetch_assoc($query);
 
+
+
 $userid = $mysqli->real_escape_string($_POST["id"]);
-$sql = "DELETE FROM Users WHERE id = '$userid'";
+$sql = "UPDATE `posts` SET `deleted`= 1 WHERE `id` = '$userid'";
 
 if ($mysqli->query($sql)) {
 
@@ -42,6 +44,7 @@ if ($mysqli->query($sql)) {
         "status" => true,
         "message" => "Успех"
     ];
+
 
     echo json_encode($response);
 }
