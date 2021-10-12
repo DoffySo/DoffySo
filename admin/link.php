@@ -18,39 +18,57 @@ if ($user['level'] < 2) { //Проверяем уровень админки
 <?php } else { ?>
     <!--    Main-->
     <div class="header--posts">
-        <table class="userstable">
-            <tr>
-                <td>ID</td>
-                <td>Логин</td>
-                <td>Уровень прав</td>
-            </tr>
-            <?php
-            $users = $mysqli->query("SELECT * FROM `users` WHERE `id` > 1");
-            $users = mysqli_fetch_all($users);
-            $hashed =  md5($users['login']);
-            foreach ($users as $users) { // Начинаем цикл Foreach?>
-            <tr>
-                <td><?= $users[0] ?></td>
-                <td><?= $users[1] ?></td>
-                <td><?= $users[3] ?></td>
-                <td><a href="accounts?id=<?= $users[0] ?>&hashed=<?= $hashed ?>">Настройки</a></td>
-                <td><a href="#">Удалить</a></td>
-            </tr>
-            <?php }  //Заканчиваем Foreach цикл ?>
-        </table>
-        <table class="createusers">
-            <tr>
-                <td>Логин</td>
-                <td>Пароль</td>
-                <td>Уровень прав</td>
-            </tr>
-            <tr>
+        <div class="admin_users">
+            <table class="userstable">
+                <tr style="color: white">
+                    <td>Логин</td>
+                    <td>Уровень прав</td>
+                </tr>
+                <?php
+                $users = $mysqli->query("SELECT * FROM `users` WHERE `id` > 1");
+                $users = mysqli_fetch_all($users);
+                $hashed =  md5($users['login']);
+                foreach ($users as $users) { // Начинаем цикл Foreach?>
+                <tr>
+                    <td><?= $users[1] ?></td>
+                    <td><?php
+                        $lvle = '';
+                        if ($users[3] == 3) {
+                            $lvle = 'Гл. Админ';
+                        } elseif ($users[3] == 2) {
+                            $lvle = 'Ст. редактор';
+                        } elseif ($users[3] == 1) {
+                            $lvle = 'Редактор';
+                        } else {
+                            $lvle = 'Ошибка';
+                        }
+                        echo $lvle .' ('.$users[3].')';
+                         ?></td>
+                    <td class="hover_btns">
+                        <a><i class="fas fa-ellipsis-h settings"></i></a>
+                        <div class="pop_settings">
+                            <a href="accounts?id=<?= $users[0] ?>&hashed=<?= $hashed ?>">Настройки</i></a>
+                            <a href="accounts?id=<?= $users[0] ?>&hashed=<?= $hashed ?>">Удалить</i></a>
+                        </div>
+                    </td>
+                </tr>
+                <?php }  //Заканчиваем Foreach цикл ?>
+            </table>
+            <table class="createusers">
+                <tr>
+                    <td>Логин</td>
+                    <td>Пароль</td>
+                    <td>Уровень прав</td>
+                </tr>
+                <tr>
                     <td><input type="text" name="login"></td>
                     <td><input type="text" name="password"></td>
                     <td><input type="text" name="level"></td>
                     <td><a href="#" class="new_account">Создать</a></td>
-            </tr>
-        </table>
+                </tr>
+            </table>
+        </div>
+
     </div>
 </header>
 <?php } ?>
@@ -83,5 +101,7 @@ if ($user['level'] < 2) { //Проверяем уровень админки
 </style>
 <script src="/src/js/jquery-3.6.0.min.js"></script>
 <script src="/src/js/account.js"></script>
+<script src="/src/js/admin.js"></script>
+<script src="/src/js/anime.min.js"></script>
 </body>
 </html>

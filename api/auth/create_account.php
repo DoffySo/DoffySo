@@ -4,6 +4,7 @@ require '../../vendor/database.php';
 $login = $_POST['login'];
 $password = $_POST['password'];
 $level = $_POST['level'];
+$creation_date = $_POST['date'];
 
 if ($login == '') {
     $error_fields[] = 'login';
@@ -56,7 +57,7 @@ if (mysqli_num_rows($userf) > 0) {
 } else {
     $password = md5($password);
 
-    $mysqli->real_query("INSERT INTO `users`(`id`, `login`, `password`, `level`, `token`) VALUES (NULL, '$login', '$password', '$level', '')");
+    $mysqli->real_query("INSERT INTO `users`(`id`, `login`, `password`, `level`, `token`, `creation_date`) VALUES (NULL, '$login', '$password', '$level', '', '$creation_date')");
             $response = [
                 "status" => true
             ];

@@ -29,23 +29,39 @@ body .header--side .logout { grid-area: logout; padding: 10px 15px; border: 2px 
 
 body .header--side .logout:hover { color: #8088e3; border-radius: 30px; }
 
-body .header--posts { grid-area: main; display: flex; flex-direction: row; flex-grow: 1; flex-wrap: wrap; }
+body .header--posts { grid-area: main; display: flex; flex-direction: row; flex-wrap: wrap; flex-grow: 1; justify-content: center; }
 
 body .header--posts .noPosts { position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%); }
 
-body .header--posts .userstable { width: 40%; background-color: transparent; padding: 10px; font-weight: 600; }
+body .header--posts .admin_users { display: flex; flex-direction: column-reverse; justify-content: center; align-items: center; }
 
-body .header--posts .userstable td { padding: 10px 5px; background-color: #636363; }
+body .header--posts .admin_users .userstable { z-index: 6; position: relative; border-spacing: 0px 20px; border-collapse: separate; color: black; width: 100%; font-weight: 600; grid-area: users; }
 
-body .header--posts .userstable a:hover { color: #9AA5C0; }
+body .header--posts .admin_users .userstable .settings { z-index: 7; }
 
-body .header--posts .createusers { margin-left: auto; width: 2%; background-color: #545454; padding: 5px; font-weight: 600; max-height: 100px; }
+body .header--posts .admin_users .userstable .pop_settings { background-color: #fff; position: absolute; border-radius: 0; opacity: 0; transform: translateY(-50px) translateX(-20px); transition: 350ms ease; z-index: 5; display: flex; flex-direction: column-reverse; line-height: normal; }
 
-body .header--posts .createusers a { margin-left: 10px; padding: 10px 20px; border: 2px solid #B0B0B0; color: #B0B0B0; border-radius: 5px; transition: 350ms ease; }
+body .header--posts .admin_users .userstable .hover_btns:hover .pop_settings { border-radius: 25px 25px 0 0; height: max-content; width: max-content; padding: 25px 10px; opacity: 1; transform: translateY(-125px) translateX(-25px); }
 
-body .header--posts .createusers a:hover { background-color: #B0B0B0; color: #ffffff; }
+body .header--posts .admin_users .userstable td { padding: 20px 10px; }
 
-body .header--posts .createusers input { outline: none; padding: 10px 5px; }
+body .header--posts .admin_users .userstable td:first-child { border-radius: 25px 0 0 25px; }
+
+body .header--posts .admin_users .userstable td:last-child { border-radius: 0 25px 25px 0; }
+
+body .header--posts .admin_users .userstable tr { background-color: #fff; }
+
+body .header--posts .admin_users .userstable tr:first-child { background: transparent; }
+
+body .header--posts .admin_users .userstable a { color: #d9d9d9; font-size: 18px; cursor: pointer; }
+
+body .header--posts .admin_users .userstable a:hover { color: #9AA5C0; }
+
+body .header--posts .admin_users .createusers { margin-left: auto; width: 2%; background-color: #545454; padding: 5px; font-weight: 600; max-height: 100px; grid-area: createusers; }
+
+body .header--posts .admin_users .createusers a { margin-left: 10px; padding: 10px 20px; border: 2px solid #B0B0B0; color: #B0B0B0; border-radius: 5px; transition: 350ms ease; }
+
+body .header--posts .admin_users input { outline: none; padding: 10px 5px; }
 
 body .header--posts .account_setting tr { background-color: #5D5D5D; }
 
@@ -55,7 +71,7 @@ body .header--posts .account_setting td input { background-color: transparent; c
 
 body .header--posts .account_setting td input:focus { padding: 2px 3px; border: 2px solid black; }
 
-body .header--posts .account_setting a { cursor: pointer; font-weight: 700; transition: 300ms ease; color: #ffffff; }
+body .header--posts .account_setting a { cursor: pointer; font-weight: 700; transition: 300ms ease; color: #B0B0B0; }
 
 body .header--posts .account_setting a:hover { color: #d9d9d9; }
 

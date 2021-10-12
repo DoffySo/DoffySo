@@ -17,6 +17,7 @@ $user = mysqli_fetch_assoc($user);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Админ Панель | <?= $pagetitle ?></title>
     <link rel="stylesheet" href="/src/css/admin.css">
+    <link rel="stylesheet" href="/src/assets/fontawesome_pro/css/all.min.css">
 </head>
 <body>
 

@@ -47,10 +47,13 @@ $('.new_account').click(function (e) {
     e.preventDefault();
 
     $(`input`).removeClass('error');
+    var dateet = new Date()
+    var datee = datee.getDate()
 
     let login = $('input[name="login"]').val(),
         password = $('input[name="password"]').val(),
-        level = $('input[name="level"]').val();
+        level = $('input[name="level"]').val(),
+        date = datee.getDate();
 
     $.ajax({
         url: '/api/auth/create_account',
@@ -59,7 +62,8 @@ $('.new_account').click(function (e) {
         data: {
             login: login,
             password: password,
-            level: level
+            level: level,
+            date: date
         },
         success(data) {
             if (data.status) {
@@ -92,8 +96,8 @@ $('.create_post').click(function (e) {
     datee = datee.getDate()
 
     let title = $('input[name="title"]').val(),
-        text = $('input[name="text"]').val(),
-        text_small = $('input[name="text_small"]').val(),
+        text = $('textarea[name="text"]').val(),
+        text_small = $('textarea[name="text_small"]').val(),
         theme = $('input[name="theme"]').val(),
         date = datee
 

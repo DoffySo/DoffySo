@@ -15,6 +15,9 @@ $buttonbgsecond_h: #5D5D5D;
         background-color: rgba(255, 255, 255, .05);
     }
 }
+body {
+    overflow-x: hidden;
+}
 
 
 * {
@@ -30,10 +33,6 @@ $buttonbgsecond_h: #5D5D5D;
         display: none;
     }
 
-    .container {
-        width: 100vw;
-        overflow: hidden;
-    }
 
     header {
         grid-area: header;
@@ -45,7 +44,6 @@ $buttonbgsecond_h: #5D5D5D;
         text-align: center;
         align-items: center;
         justify-items: center;
-        justify-content: center;
         .header--logo {
             grid-area: headerlogo;
         }
@@ -72,18 +70,36 @@ $buttonbgsecond_h: #5D5D5D;
             grid-area: headerbutton;
             width: max-content;
             height: max-content;
+            position: relative;
+            .burger-menu {
+                position: fixed;
+                z-index: 5000;
+                height: 100vh;
+                width: 100vw;
+                align-items: start;
+                justify-content: center;
+
+                .toggle-burger {
+                    z-index: 4999;
+                    padding: 10px;
+                    border: 0;
+                }
+                .menu {
+                    transform: translateY(-200px);
+                    height: 125px;
+                    z-index: 4998;
+                    background: red;
+                    opacity: 0;
+                }
+            }
         }
     }
     .main {
         font-family: 'Roboto', sans-serif;
         grid-area: main;
         margin: auto;
-        width: 1000px;
+        justify-content: center;
         background-color: transparent;
-        padding: 10px;
-        display: grid;
-        grid-template-areas: ".menu" "postts";
-        grid-template-columns: 1fr 2fr;
 
         .ad {
             grid-area: tads;
@@ -108,9 +124,10 @@ $buttonbgsecond_h: #5D5D5D;
                     color: black;
             }
         }
+
         .menu {
             display: flex;
-            position: absolute;
+            margin: 10px auto 0 auto;
             height: auto;
             .create_post, .to_posts {
                 padding: 10px 15px;
@@ -145,15 +162,14 @@ $buttonbgsecond_h: #5D5D5D;
         }
         .posts {
             opacity: 1;
-            margin-top: 50px;
             display: flex;
-            flex-direction: row-reverse;
             align-items: center;
-            justify-content: start;
-            width: auto;
-            max-width: 1100px;
-            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 950px;
+            flex-wrap: wrap-reverse;
+            flex-direction: row-reverse;
             transition: 350ms ease;
+            padding: 10px;
             }
 
             .noPost {
@@ -162,23 +178,22 @@ $buttonbgsecond_h: #5D5D5D;
                 align-self: center;
                 justify-self: center;
             }
-            .last_post {
-                width: 100%;
-                grid-area: lastpost;
-                background-color: red;
-            }
             .post {
+                margin: 5px;
+                opacity: 0;
                 margin-top: 10px;
                 min-width: 250px;
                 max-width: 350px;
                 min-height: 100px;
-                margin-right: 10px;
                 border-radius: 30px;
                 background-color: #FFFFFF;
                 display: grid;
                 grid-template-areas: "top" "bottom";
                 grid-template-rows: 1.3fr 0.7fr;
                 box-shadow: 0 0 5px 1px rgba(0,0,0,0.1);
+                transform: translateY(-50px);
+                transition: 150ms ease;
+
 
 
                 .top {
@@ -197,6 +212,9 @@ $buttonbgsecond_h: #5D5D5D;
                         border-radius: 0 25px 25px 0;
                         background-color: white;
                     }
+                    img {
+                        width: 200px;
+                    }
                 }
                 .bottom {
                     background-color: white;
@@ -211,7 +229,7 @@ $buttonbgsecond_h: #5D5D5D;
                         grid-area: topbottom;
                     }
                     .post_btn {
-                        padding: 10px 25px;
+                        padding: 10px 15px;
                         border-radius: 5px;
                         font-weight: 600;
                         border: 2px solid black;
@@ -290,63 +308,75 @@ $buttonbgsecond_h: #5D5D5D;
             grid-area: rights;
         }
     }
-@media screen and (min-width: 1200px ){
-    .posts {
-        min-width: 1060px;
-        flex-direction: row-reverse;
-    }
-}
-@media screen and (min-width: 901px ){
-    .posts {
-        min-width: 950px;
-        flex-direction: row;
-
-        .post {
-            max-width: 300px;
-        }
-    }
-}
-@media screen and (max-width: 900px ){
+@media screen and (max-width: 900px){
     header {
         grid-template-areas: "headerlogo headerbutton";
-        grid-template-columns: .4fr 2fr;
-
+        grid-template-columns: 0fr 1fr;
+        grid-gap: 5px;
+        padding: 0;
+        width: 100vw;
         .header--nav {
             display: none;
         }
     }
     .posts {
-        min-width: 500px;
-        max-width: 600px;
-        flex-direction: row;
-
-        .post {
-            min-width: 250px;
-            max-width: 300px;
-        }
+        flex-direction: column-reverse;
     }
 }
-@media screen and (max-width: 500px ){
+@media screen and (min-width: 800px){
+    .post:last-child {
+        transform: rotate(0deg);
+        min-width: 70%;
+        min-height: 250px;
+        display: flex;
+
+        .top {
+            border-radius: 25px 0 0 25px;
+            width: 50%;
+            padding: 10px 0 10px 0;
+            img {
+                position: absolute;
+            }
+        }
+        .bottom {
+            justify-content: center;
+            grid-template-rows: 2fr 1fr;
+
+            .controls {
+                grid-area: contrls;
+                display: grid;
+                grid-template-areas: "button info";
+                grid-template-rows: 1fr 1fr;
+                grid-gap: 10px;
+                .post_btn {
+                    grid-area: button;
+                    margin-right: 2px;
+                }
+                .info {
+                    grid-area: info;
+
+                    display: grid;
+                    grid-template-areas: "date" "counters";
+
+                    .date {
+                        grid-area: date;
+                    }
+                    .views_comments {
+                        grid-area: counters;
+                    }
+                }
+            }
+        }
+
+
+    }
+}
+@media screen and (max-width: 300px){
     header {
-        grid-template-areas: "headerbutton";
-        justify-content: center;
-
-
+        grid-template-areas: "headerlogo headerbutton";
+        width: 100vw;
         .header--nav {
             display: none;
-        }
-        .header--logo {
-            display: none;
-        }
-    }
-    .posts {
-        min-width: 500px;
-        max-width: 600px;
-        flex-direction: row;
-
-        .post {
-            min-width: 250px;
-            max-width: 300px;
         }
     }
 }

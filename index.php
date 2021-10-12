@@ -9,8 +9,8 @@
             <?php
                 if ($_SESSION['admin']) {
             ?>
-            <a href="#" class="create_post">Создать новость</a>
-            <a href="#" class="to_posts">Меню всех постов</a>
+            <a href="/admin/post_create" class="create_post">Создать пост</a>
+            <a href="/admin/index" class="to_posts">Все посты</a>
             <?php
                 }
             ?>
@@ -26,9 +26,9 @@
             $post = mysqli_fetch_all($p);
             foreach ($post as $poste) {
             ?>
-            <div class="post">
+            <div class="post <?= $poste[0] ?>">
                 <div class="top">
-                    <img src="/src/assets/logo_rw.png" width="250px" alt="Img" class="img">
+                    <img src="/src/assets/logo_rw.png" alt="Img" class="img">
                     <small class="theme"><?= $poste[6] ?></small>
                 </div>
                 <div class="bottom">
@@ -52,6 +52,7 @@
     </div>
 </div>
 
+<script src="/src/js/jquery-3.6.0.min.js"></script>
 <script src="/src/js/scroll.js"></script>
 <script src="/src/js/anime.min.js"></script>
 
