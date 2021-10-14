@@ -19,9 +19,9 @@ require '../src/components/admin/header.php';
         </div>
         <textarea type="text" name="text" class="texttt" maxlength="10000" rows="10"></textarea>
         <label for="">Текст который отображается на главной (до 200 символов)</label>
-        <textarea type="text" name="text_small" maxlength="200" rows="10"></textarea>
+        <textarea type="text" name="text_small" maxlength="100"></textarea>
         <label for="">Тема</label>
-        <input type="text" name="theme" value="">
+        <input type="text" maxlength="20" name="theme" value="">
         <div class="post_buttons">
             <button type="submit" class="create_post">Создать</button>
         </div>

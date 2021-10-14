@@ -40,7 +40,8 @@
                         <a href="/post?post_id=<?= $poste[0] ?>" class="post_btn">Подробнее</a>
                         <div class="info">
                             <small class="date"><?= $poste[5] ?></small>
-                            <small class="views_comments"><?= $poste[8] ?> просмотров <?= $poste[9] ?> комментариев</small>
+                            <small class="views"><?= $poste[8] ?> просмотров</small>
+                            <small class="commentss"> <?= $poste[9] ?> комментариев</small>
                         </div>
                     </div>
                 </div>

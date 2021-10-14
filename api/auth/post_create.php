@@ -1,14 +1,28 @@
 <?php
 session_start();
+$id = $_POST['id'];
 $title = $_POST['title'];
 $text = $_POST['text'];
 $text_small = $_POST['text_small'];
 $theme = $_POST['theme'];
 
-$idd = $_SESSION['admin']['id'];
-
 require '../../vendor/database.php';
+$query = $mysqli->query("SELECT * FROM `posts` WHERE `id` = 1");
 
+if (mysqli_num_rows($query) < 0) {
+    $response = [
+        "status" => false,
+        "type" => 1,
+        "message" => 'Пост с таким ID не найден'
+    ];
+
+    echo json_encode($response);
+
+    die();
+}
+if ($id === '') {
+    $error_fields[] = 'id';
+}
 
 if ($title === '') {
     $error_fields[] = 'title';
@@ -34,6 +48,7 @@ if (!empty($error_fields)) {
 
     die();
 }
+$query = mysqli_fetch_assoc($query);
 $date = date("Y-m-d H:i:s");
 $mysqli->real_query("INSERT INTO `posts`(`id`, `title`, `text`, `text_small`, `author`, `date`, `theme`, `accepted`, `views`, `comments`, `deleted`) VALUES (NULL,'$title','$text', '$text_small', '$idd' , '$date' ,'$theme', 0, 0, 0, 0)");
 $response = [
@@ -42,5 +57,6 @@ $response = [
 ];
 
 echo json_encode($response);
+
 
 

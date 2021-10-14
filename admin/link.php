@@ -48,6 +48,7 @@ if ($user['level'] < 2) { //Проверяем уровень админки
                         <a><i class="fas fa-ellipsis-h settings"></i></a>
                         <div class="pop_settings">
                             <a href="accounts?id=<?= $users[0] ?>&hashed=<?= $hashed ?>">Настройки</i></a>
+                            ⠀
                             <a href="accounts?id=<?= $users[0] ?>&hashed=<?= $hashed ?>">Удалить</i></a>
                         </div>
                     </td>

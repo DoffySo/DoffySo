@@ -33,7 +33,7 @@ require '../src/components/admin/header.php';
                             <h1 class="title"><?= $post[1] ?></h1>
                             <p class="text"><?= $post[3] ?></p>
                         </div>
-                        <a href="#" class="post_btn">Перейти</a>
+                        <a href="post_check?postid=<?= $post[0] ?>" class="post_btn">Перейти</a>
                         <div class="right_bottom">
                             <small class="admin_sended">ID Админа: <?= $post[4] ?></small>
                             <small class="date">Дата: <?= $post[5] ?></small>

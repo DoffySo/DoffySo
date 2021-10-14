@@ -168,6 +168,43 @@ $('.updatePost').click(function (e) {
         }
     });
 });
+$('.successPost').click(function (e) {
+    e.preventDefault();
+
+    $(`input`).removeClass('error');
+
+
+    let title = $('input[name="title"]').val(),
+        text = $('textarea[name="text"]').val(),
+        text_small = $('textarea[name="text_small"]').val(),
+        theme = $('input[name="theme"]').val(),
+        id = $('input[name="id"]').val();
+    $.ajax({
+        url: '/api/auth/post_update',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            title: title,
+            text: text,
+            text_small: text_small,
+            theme: theme,
+            id: id
+        },
+        success(data) {
+            if (data.status) {
+                alert(data.message)
+                document.location.href = '/admin/index';
+            } else {
+                if (data.type === 1) {
+                    data.fields.forEach(function (field) {
+                        $(`input[name="${field}"]`).addClass('error');
+                    });
+                }
+            }
+
+        }
+    });
+});
 $('.deletePost').click(function (e) {
     e.preventDefault();
 

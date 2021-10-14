@@ -16,7 +16,6 @@ if (mysqli_num_rows($query) < 1) {
 $user = mysqli_fetch_assoc($query);
 ?>
 
-<link rel="stylesheet" href="/src/assets/fontawesome_pro/css/all.css">
 <div class="header--posts">
     <table class="account_setting">
         <tr>

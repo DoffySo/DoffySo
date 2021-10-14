@@ -50,7 +50,7 @@ if (!empty($error_fields)) {
 }
 $query = mysqli_fetch_assoc($query);
 
-$mysqli->query("UPDATE `posts` SET `title` = '$title', `text` = '$text', `text_small` = '$text_small', `theme` = '$theme' WHERE `id` = '$id'");
+$mysqli->query("UPDATE `posts` SET `accepted` = '1', `title` = '$title', `text` = '$text', `text_small` = '$text_small', `theme` = '$theme'");
 $response = [
     "status" => true,
     "message" => "Успех"

@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><?= $pagename ?> | RightWings</title>
     <link rel="stylesheet" href="/src/css/style.css">
 </head>
 <body>
@@ -39,15 +40,15 @@
                     }
                     ?>
                 </p>
-                <li><a href="#">Username</a></li>
-                <li><a href="#">Новости</a></li>
+                <li><a href="/admin/index">Username</a></li>
+                <li><a href="/">Главная</a></li>
                 <li><a href="/api/auth/logout">Выйти</a></li>
             </nav>
             <?php
         } else {
         ?>
         <nav>
-            <li><a href="#">Новости</a></li>
+            <li><a href="/">Главная</a></li>
         </nav>
         <?php
         }

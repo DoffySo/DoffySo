@@ -15,12 +15,12 @@ function onEntry(entry) {
                 translateX: 0,
                 loop: false,
                 easing: 'spring(1, 80, 10, 0)',
-                duration: 2000,
+                duration: 1000,
                 delay: function(el, i, l) {
-                    return randd(1,4) * 100;
+                    return randd(1,4) * randd(50, 100);
                 },
                 endDelay: function(el, i, l) {
-                    return (l - randd(1,4)) * 100;
+                    return (l - randd(1,4)) * randd(50, 100);
                 }
             })
             if (!change.target.classList.contains('Post-Showed')) {

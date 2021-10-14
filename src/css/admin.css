@@ -39,9 +39,9 @@ body .header--posts .admin_users .userstable { z-index: 6; position: relative; b
 
 body .header--posts .admin_users .userstable .settings { z-index: 7; }
 
-body .header--posts .admin_users .userstable .pop_settings { background-color: #fff; position: absolute; border-radius: 0; opacity: 0; transform: translateY(-50px) translateX(-20px); transition: 350ms ease; z-index: 5; display: flex; flex-direction: column-reverse; line-height: normal; }
+body .header--posts .admin_users .userstable .pop_settings { background-color: #fff; position: absolute; border-radius: 0; opacity: 0; transform: translateY(-42px) translateX(30px); transition: 350ms ease all; z-index: 5; display: none; flex-direction: row; border-radius: 25px; padding: 20px; overflow: hidden; }
 
-body .header--posts .admin_users .userstable .hover_btns:hover .pop_settings { border-radius: 25px 25px 0 0; height: max-content; width: max-content; padding: 25px 10px; opacity: 1; transform: translateY(-125px) translateX(-25px); }
+body .header--posts .admin_users .userstable .hover_btns:hover .pop_settings { height: max-content; width: max-content; opacity: 1; animation: animation_nn 350ms ease; animation-delay: 1s; display: flex; transform: translateY(-42px) translateX(70px); transition-delay: 70ms; background-color: #5D5D5D; border-radius: 0 25px 25px 0; }
 
 body .header--posts .admin_users .userstable td { padding: 20px 10px; }
 
@@ -57,11 +57,13 @@ body .header--posts .admin_users .userstable a { color: #d9d9d9; font-size: 18px
 
 body .header--posts .admin_users .userstable a:hover { color: #9AA5C0; }
 
-body .header--posts .admin_users .createusers { margin-left: auto; width: 2%; background-color: #545454; padding: 5px; font-weight: 600; max-height: 100px; grid-area: createusers; }
+body .header--posts .admin_users .createusers { border-radius: 25px; margin-left: auto; width: 2%; background-color: #ffffff; color: #000; padding: 15px; font-weight: 600; max-height: 100px; grid-area: createusers; }
 
-body .header--posts .admin_users .createusers a { margin-left: 10px; padding: 10px 20px; border: 2px solid #B0B0B0; color: #B0B0B0; border-radius: 5px; transition: 350ms ease; }
+body .header--posts .admin_users .createusers a { border-radius: 25px; margin-left: 10px; padding: 10px 20px; border: 2px solid #171717; color: #000000; transition: 350ms ease; }
 
-body .header--posts .admin_users input { outline: none; padding: 10px 5px; }
+body .header--posts .admin_users .createusers a:hover { color: #787878; border: 2px solid #787878; }
+
+body .header--posts .admin_users input { border-radius: 25px; outline: none; padding: 10px 5px; border: 2px solid black; background-color: #f3f3f3; color: #4e4e4e; font-weight: 600; }
 
 body .header--posts .account_setting tr { background-color: #5D5D5D; }
 
@@ -79,13 +81,19 @@ body .header--posts .redact { color: black; font-weight: bold; transition: color
 
 body .header--posts .redact:hover { color: #6f6f6f; }
 
-body .header--posts .post { border-radius: 10px; margin: 0 20px 20px 0; color: black; min-width: 200px; min-height: 200px; width: max-content; height: max-content; background-color: white; justify-content: center; display: grid; grid-template-rows: 1.3fr 0.7fr; grid-template-areas: "heady" "bodyy"; padding: 10px 5px; font-family: 'Bitter', serif; }
+body .header--posts .post { border-radius: 10px; margin: 0 20px 20px 0; color: black; min-width: 350px; max-width: 400px; min-height: 400px; max-height: 600px; width: max-content; height: max-content; background-color: white; justify-content: center; display: grid; grid-template-rows: 1.3fr 0.7fr; grid-template-areas: "heady" "bodyy"; padding: 10px 5px; position: relative; font-family: 'Bitter', serif; }
+
+body .header--posts .post .theme { position: absolute; left: 0; top: 25%; }
 
 body .header--posts .post .post_buttons { margin-top: 5px; }
 
 body .header--posts .post .post_buttons .updatePost { background-color: #8088e3; border-radius: 10px; border: 0; padding: 10px 15px; color: white; font-weight: bold; cursor: pointer; }
 
 body .header--posts .post .post_buttons .updatePost:hover { background-color: #5f65aa; }
+
+body .header--posts .post .post_buttons .successPost { background-color: #80e390; border-radius: 10px; border: 0; padding: 10px 15px; color: white; font-weight: bold; cursor: pointer; }
+
+body .header--posts .post .post_buttons .successPost:hover { background-color: #5faa72; }
 
 body .header--posts .post .post_buttons .deletePost { background-color: #de5454; border-radius: 10px; border: 0; padding: 10px 15px; color: white; font-weight: bold; cursor: pointer; }
 

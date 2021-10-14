@@ -19,22 +19,30 @@ body {
     overflow-x: hidden;
 }
 
-
 * {
     padding: 0;
     margin: 0;
     text-decoration: none;
     list-style: none;
     box-sizing: border-box;
-    display: grid;
-    grid-template-areas: "header" "main";
+
+    head {
+        title {
+            display: none;
+        }
+    }
 
     .none {
         display: none;
     }
 
+    .container {
+        display: grid;
+        grid-template-areas: "header" "main";
+    }
 
-    header {
+
+    .header {
         grid-area: header;
         display: grid;
         grid-template-areas: "headerlogo headernav headerbutton";
@@ -44,10 +52,10 @@ body {
         text-align: center;
         align-items: center;
         justify-items: center;
-        .header--logo {
+        &--logo {
             grid-area: headerlogo;
         }
-        .header--nav {
+        &--nav {
             grid-area: headernav;
             nav {
                 display: flex;
@@ -66,7 +74,7 @@ body {
                 }
             }
         }
-        .header--ah {
+        &--ah {
             grid-area: headerbutton;
             width: max-content;
             height: max-content;
@@ -182,8 +190,8 @@ body {
                 margin: 5px;
                 opacity: 0;
                 margin-top: 10px;
-                min-width: 250px;
-                max-width: 350px;
+                min-width: 350px;
+                max-width: 400px;
                 min-height: 100px;
                 border-radius: 30px;
                 background-color: #FFFFFF;
@@ -237,6 +245,7 @@ body {
                         color: black;
                     }
                     .text {
+                        margin-top: 5px;
                         font-size: 13px;
                         font-weight: 500;
                     }
@@ -272,15 +281,23 @@ body {
         }
     }
     .view {
-        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        margin: 10px auto 0 auto;
+        .tohome {
+            padding: 5px 10px;
+            border: 2px solid black;
+            width: max-content;
+            border-radius: 5px;
+        }
         .post {
-            grid-area: main;
             display: flex;
             flex-direction: column;
             gap: 10px;
-
             .title {
-
+                font-weight: 600;
+                font-size: 26px;
             }
         }
     }
@@ -326,8 +343,8 @@ body {
 @media screen and (min-width: 800px){
     .post:last-child {
         transform: rotate(0deg);
-        min-width: 70%;
-        min-height: 250px;
+        min-width: 700px;
+        max-width: 800px;
         display: flex;
 
         .top {
