@@ -178,9 +178,10 @@ $('.successPost').click(function (e) {
         text = $('textarea[name="text"]').val(),
         text_small = $('textarea[name="text_small"]').val(),
         theme = $('input[name="theme"]').val(),
-        id = $('input[name="id"]').val();
+        id = $('input[name="id"]').val(),
+        postid = $('input[name="postid"]').val();
     $.ajax({
-        url: '/api/auth/post_update',
+        url: '/api/auth/post_check',
         type: 'POST',
         dataType: 'json',
         data: {
@@ -188,7 +189,8 @@ $('.successPost').click(function (e) {
             text: text,
             text_small: text_small,
             theme: theme,
-            id: id
+            id: id,
+            postid: postid,
         },
         success(data) {
             if (data.status) {

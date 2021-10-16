@@ -50,7 +50,7 @@ if (!empty($error_fields)) {
 }
 $query = mysqli_fetch_assoc($query);
 $date = date("Y-m-d H:i:s");
-$mysqli->real_query("INSERT INTO `posts`(`id`, `title`, `text`, `text_small`, `author`, `date`, `theme`, `accepted`, `views`, `comments`, `deleted`) VALUES (NULL,'$title','$text', '$text_small', '$idd' , '$date' ,'$theme', 0, 0, 0, 0)");
+$mysqli->real_query("INSERT INTO `posts`(`id`, `title`, `text`, `text_small`, `author`, `date`, `theme`, `accepted`, `views`, `comments`, `deleted`) VALUES (NULL,'$title','$text', '$text_small', '$id' , '$date' ,'$theme', 0, 0, 0, 0)");
 $response = [
     "status" => true,
     "message" => "Успех"

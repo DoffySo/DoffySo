@@ -29,7 +29,7 @@ body .header--side .logout { grid-area: logout; padding: 10px 15px; border: 2px 
 
 body .header--side .logout:hover { color: #8088e3; border-radius: 30px; }
 
-body .header--posts { grid-area: main; display: flex; flex-direction: row; flex-wrap: wrap; flex-grow: 1; justify-content: center; }
+body .header--posts { grid-area: main; display: flex; flex-direction: row; flex-wrap: wrap; flex-grow: 1; justify-content: center; align-items: center; }
 
 body .header--posts .noPosts { position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%); }
 
@@ -81,9 +81,11 @@ body .header--posts .redact { color: black; font-weight: bold; transition: color
 
 body .header--posts .redact:hover { color: #6f6f6f; }
 
-body .header--posts .post { border-radius: 10px; margin: 0 20px 20px 0; color: black; min-width: 350px; max-width: 400px; min-height: 400px; max-height: 600px; width: max-content; height: max-content; background-color: white; justify-content: center; display: grid; grid-template-rows: 1.3fr 0.7fr; grid-template-areas: "heady" "bodyy"; padding: 10px 5px; position: relative; font-family: 'Bitter', serif; }
+body .header--posts .post { border-radius: 10px; margin: auto 20px 20px auto; height: max-content; min-width: 400px; max-width: 400px; min-height: 350px; max-height: 450px; background-color: #ffffff; color: #000; justify-content: center; display: grid; grid-template-rows: 1.3fr 0.7fr; grid-template-areas: "heady" "bodyy"; padding: 10px 5px; font-family: 'Bitter', serif; font-size: 13px; }
 
-body .header--posts .post .theme { position: absolute; left: 0; top: 25%; }
+body .header--posts .post .theme { position: absolute; left: 0; top: 25%; color: #000; }
+
+body .header--posts .post input, body .header--posts .post textarea { color: black; border: 1px solid black; padding: 5px; }
 
 body .header--posts .post .post_buttons { margin-top: 5px; }
 
@@ -113,9 +115,9 @@ body .header--posts .post .body .right_bottom .admin_sended { grid-area: admin_s
 
 body .header--posts .post .body .right_bottom .date { grid-area: date; }
 
-body .header--posts .post .title { font-family: 'Oswald', sans-serif; }
+body .header--posts .post .title { font-family: 'Oswald', sans-serif; font-size: 28px; }
 
-body .header--posts .post .post_btn { font-family: 'Roboto', sans-serif; color: black; border: 2px solid black; width: max-content; height: max-content; padding: 10px 30px; border-radius: 4px; font-weight: 500; grid-area: post_btn; }
+body .header--posts .post .post_btn { font-family: 'Roboto', sans-serif; font-size: 16px; color: black; border: 2px solid black; width: max-content; height: max-content; padding: 10px 30px; border-radius: 4px; font-weight: 500; grid-area: post_btn; }
 
 body .header--posts .post .post_btn:hover { border: 2px solid #5D5D5D; color: #5D5D5D; }
 

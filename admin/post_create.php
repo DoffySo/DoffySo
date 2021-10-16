@@ -17,8 +17,8 @@ require '../src/components/admin/header.php';
             <button class="h3">h3</button>
             <button class="br">br</button>
         </div>
-        <textarea type="text" name="text" class="texttt" maxlength="10000" rows="10"></textarea>
-        <label for="">Текст который отображается на главной (до 200 символов)</label>
+        <textarea type="text" name="text" class="texttt" maxlength="30000" rows="10"></textarea>
+        <label for="">Текст который отображается на главной (до 100 символов)</label>
         <textarea type="text" name="text_small" maxlength="100"></textarea>
         <label for="">Тема</label>
         <input type="text" maxlength="20" name="theme" value="">

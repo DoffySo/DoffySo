@@ -1,13 +1,14 @@
 <?php
 session_start();
 $id = $_POST['id'];
+$postid = $_POST['postid'];
 $title = $_POST['title'];
 $text = $_POST['text'];
 $text_small = $_POST['text_small'];
 $theme = $_POST['theme'];
 
 require '../../vendor/database.php';
-$query = $mysqli->query("SELECT * FROM `posts` WHERE `id` = '$id'");
+$query = $mysqli->query("SELECT * FROM `posts` WHERE `id` = '$postid'");
 
 if (mysqli_num_rows($query) < 0) {
     $response = [
@@ -20,10 +21,6 @@ if (mysqli_num_rows($query) < 0) {
 
     die();
 }
-if ($id === '') {
-    $error_fields[] = 'id';
-}
-
 if ($title === '') {
     $error_fields[] = 'title';
 }
@@ -50,7 +47,7 @@ if (!empty($error_fields)) {
 }
 $query = mysqli_fetch_assoc($query);
 
-$mysqli->query("UPDATE `posts` SET `accepted` = '1', `title` = '$title', `text` = '$text', `text_small` = '$text_small', `theme` = '$theme'");
+$mysqli->query("UPDATE `posts` SET `accepted` = '1', `title` = '$title', `text` = '$text', `text_small` = '$text_small', `theme` = '$theme' WHERE `id` = '$postid'");
 $response = [
     "status" => true,
     "message" => "Успех"

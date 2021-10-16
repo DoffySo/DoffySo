@@ -14,9 +14,11 @@ require '../src/components/admin/header.php';
 
 <div class="header--posts">
     <div class="post" style="margin: auto;">
-        <label for="id">ID админа</label>
+        <label for="">ID админа</label>
         <input type="text" name="id" value="<?= $query['author'] ?>" disabled>
-        <label for="title">Заголовок</label>
+        <label for="">ID поста</label>
+        <input type="text" name="postid" value="<?= $query['id'] ?>" disabled>
+        <label for="">Заголовок</label>
         <input type="text" name="title" value="<?= $query['title'] ?>" maxlength="30">
         <label for="">Текст (до 10.000 символов)</label>
         <textarea type="text" name="text" maxlength="10000" rows="10"><?= $query['text'] ?></textarea>

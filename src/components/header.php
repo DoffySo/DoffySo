@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= $pagename ?> | RightWings</title>
     <link rel="stylesheet" href="/src/css/style.css">
+    <link rel="stylesheet" href="/src/assets/fontawesome_pro/css/all.min.css">
 </head>
 <body>
 
